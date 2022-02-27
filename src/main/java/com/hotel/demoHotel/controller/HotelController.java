@@ -28,19 +28,19 @@ public class HotelController {
       HotelService hotelService;
 	  
 	@GetMapping("/all")
-    public ResponseEntity<List<Hotel>> getAllEmployees () {
+    public ResponseEntity<List<Hotel>> getAllHotelDetails () {
         System.out.println("ye chal raja jao");
         List<Hotel> hotelList = hotelService.getAllHotel();
         return new ResponseEntity<>(hotelList, HttpStatus.OK);
     }
 	
 	@GetMapping("/find/{id}")
-    public ResponseEntity<Hotel> getEmployeeById (@PathVariable("id") Integer id) {
+    public ResponseEntity<Hotel> getHotelDetailsById (@PathVariable("id") Integer id) {
         Hotel hotel = hotelService.getHotelDetailsById(id);
         return new ResponseEntity<>(hotel, HttpStatus.OK);
     }
     @PostMapping("/add")
-    public ResponseEntity<MessageResponse> addEmployee(@RequestBody Hotel hotel) {
+    public ResponseEntity<MessageResponse> addHotel(@RequestBody Hotel hotel) {
         MessageResponse newEmployee = hotelService.createHotel(hotel);
         return new ResponseEntity<>(newEmployee, HttpStatus.CREATED);
     }
@@ -52,7 +52,7 @@ public class HotelController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> deleteEmployee(@PathVariable("id") Integer id) {
+    public ResponseEntity<?> deleteHotel(@PathVariable("id") Integer id) {
     	hotelService.deleteHotel(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
