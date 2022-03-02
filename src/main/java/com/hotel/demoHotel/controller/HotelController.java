@@ -56,5 +56,4 @@ public class HotelController {
     	hotelService.deleteHotel(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
-
 }
